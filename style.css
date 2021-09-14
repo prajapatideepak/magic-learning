@@ -94,18 +94,37 @@ section{
 /* mastering */
 .mastering{
   background: black;
-  color: white;
+  --headclr:var(--clr-accent-400);
+  color: var(--headclr,white);
 }
 .cards{
   display: flex;
   list-style: none;
-  margin: 1rem 0;
 }
+
 .card{
+  --headclr:white;
   width: 25%;
   margin-right: 2rem;
+    color: var(--headclr,white);
+
 
 }
 .card img{
   width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.cta{
+background-image: url("./assets/cta-bg.jpg");
+background-size: cover;
+background-position:  center;
+color: white;
+text-align: center;
+padding: 10rem 1rem 9rem;
+
+}
+.cta h2{
+  margin-bottom: 2rem;
 }
