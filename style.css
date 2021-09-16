@@ -35,7 +35,7 @@ p {
 
 /* Utility classes */
 .flow-content > * + * {
-  margin-top: 1.25rem;
+  margin-top:var(--flow-space ,--spacer);
 }
 
 
@@ -52,7 +52,11 @@ body {
 h1 {
   font-weight: 400;
 }
+ul[class]{
+  list-style: none;
 
+  padding: 0;
+}
 h1 span {
   font-weight: 700;
 }
@@ -70,61 +74,66 @@ h1 span {
   color: var(--clr-neutral-900);
 }
 
-
-/* homepage */
-section{
-
-  padding: 8rem 1rem 5rem;
-}
-.content{
+.split{
   display: flex;
+  flex-direction: column;
 }
-.content__info{
-  width: 50%;
-  line-height: 1.5;
+
+.split > * + * {
+  margin: var(--spacer) 0 0 0;
+
 }
-.content__img{
-  width: 50%;
+@media(min-width:40em){
+  .split{
+    gap:var(--spacer);
+    flex-direction: row;
+  }
+  
+  .split > * + * {
+    
+    margin: 0 0   0 var(--spacer);
 }
-.thumb{
-  width: 100%;
+}
+img{
+  max-width: 100%;
+  display: block;
+}
+/* homepage */
+
+section{
+  padding: 4.2rem 0;
+}
+.container{
+  padding: 0 var(--spacer);
+  max-width: 70rem;
+  margin: 0 auto;
+} 
+
+.bg-dark{
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+}
+@media(min-width:40em){
+  section{
+    padding: 8.2rem 0;
+  }
+}
+.shadow{
   box-shadow: var(--box-shadow);
 }
 
-/* mastering */
-.mastering{
-  background: black;
-  --headclr:var(--clr-accent-400);
-  color: var(--headclr,white);
-}
-.cards{
-  display: flex;
-  list-style: none;
-}
-
-.card{
-  --headclr:white;
-  width: 25%;
-  margin-right: 2rem;
-    color: var(--headclr,white);
-
-
-}
-.card img{
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: block;
-}
 .cta{
-background-image: url("./assets/cta-bg.jpg");
-background-size: cover;
-background-position:  center;
-color: white;
-text-align: center;
-padding: 10rem 1rem 9rem;
-
+  background-image: url("./assets/cta-bg.jpg");
+  background-size: cover;
+  text-align: center;
 }
-.cta h2{
-  margin-bottom: 2rem;
+.join-now li::before{
+  content: "";
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  background: var(--clr-accent-400);
+  position: absolute;
+  z-index: -1;
+  transform: translate(-.5rem, -.5rem);
 }
